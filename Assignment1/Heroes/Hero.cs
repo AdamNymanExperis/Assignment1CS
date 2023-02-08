@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using Assignment1.Helper;
 using Assignment1.Items;
 using Assignment1.Enums;
+using Assignment1.Exceptions;
 
 namespace Assignment1.Heroes
 {
@@ -28,7 +29,7 @@ namespace Assignment1.Heroes
 
         public void Equip(Armor armor) 
         {
-            if (isRequiredLevel(armor.RequiredLevel) && isValidArmorType(armor.ArmorType))
+            if (isRequiredLevelForArmor(armor.RequiredLevel) && isValidArmorType(armor.ArmorType))
             {
                 Equipment.Remove(armor.Slot);
                 Equipment.Add(armor.Slot, armor);
@@ -37,27 +38,31 @@ namespace Assignment1.Heroes
 
         public void Equip(Weapon weapon)
         {
-            if (isRequiredLevel(weapon.RequiredLevel) && isValidWeaponType(weapon.WeaponType))
+            if (isRequiredLevelForWeapon(weapon.RequiredLevel) && isValidWeaponType(weapon.WeaponType))
             {
                 Equipment.Remove(weapon.Slot);
                 Equipment.Add(weapon.Slot, weapon);
             }
         }
-        private bool isRequiredLevel(int requiredLevel)
+        private bool isRequiredLevelForArmor(int requiredLevel)
         {
             if (requiredLevel <= Level) return true;
-            else throw new Exception();
+            else throw new InvalidArmorException($"You require a higher level to equip that armor! (required level {requiredLevel})");
         }
         private bool isValidArmorType(ArmorType type)
         {
             if (ValidArmorTypes.Contains(type)) return true;
-            else throw new Exception();
+            else throw new InvalidArmorException($"You can't wear armors of that type! ({type})");
         }
-
+        private bool isRequiredLevelForWeapon(int requiredLevel)
+        {
+            if (requiredLevel <= Level) return true;
+            else throw new InvalidWeaponException($"You require a higher level to equip that weapon! (required level {requiredLevel})");
+        }
         private bool isValidWeaponType(WeaponType type)
         {
             if (ValidWeaponTypes.Contains(type)) return true;
-            else throw new Exception();
+            else throw new InvalidWeaponException($"You can't use weapons of that type! ({type})"); ;
         }
 
         public HeroAttribute TotalAttributes()
