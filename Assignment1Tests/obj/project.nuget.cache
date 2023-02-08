@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "AmQ+pGUlgX6VuqsukGkQFtrEGE9hv3JLfEOOFY3AceuOrCU3HEZOHyo0MG7oZCN1DzXYdTlg3POB8EbQLMeGlw==",
+  "dgSpecHash": "16ty/yurAOzRiI56+pVGqfwBtIFs43tJP0/X0PpgjyJBQ37YfefU0iPqN1168r32BEf/5RcT3OEu2qKU8nbA9A==",
   "success": true,
-  "projectFilePath": "C:\\Users\\ANyman\\source\\repos\\Assignment1\\Assignment1Tests\\Assignment1Tests.csproj",
+  "projectFilePath": "C:\\Users\\ANyman\\source\\repos\\assignment1\\Assignment1Tests\\Assignment1Tests.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\ANyman\\.nuget\\packages\\castle.core\\5.1.1\\castle.core.5.1.1.nupkg.sha512",
     "C:\\Users\\ANyman\\.nuget\\packages\\coverlet.collector\\3.1.2\\coverlet.collector.3.1.2.nupkg.sha512",

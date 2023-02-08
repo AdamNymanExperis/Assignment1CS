@@ -13,8 +13,14 @@ namespace Assignment1
         }
         public string Name { get; set; }
         public int Level { get; } = 1;
+        public HeroAttribute LevelAttributes { get; } = new HeroAttribute();
         public List<Item> Equipment = new List<Item>();
         public object ValidWeaponTypes = new List<String>();
         public object ValidArmorTypes = new List<String>();
+
+        public void LevelUp()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

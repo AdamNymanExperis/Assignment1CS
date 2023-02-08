@@ -36,6 +36,20 @@ namespace Assignment1Tests
         }
 
         [Fact]
+        public void Constructor_InitializeWithName_ShouldCreateAHeroWithoutAttributes()
+        {
+            // Arrange
+            var expected = new int[] {0,0,0};
+
+            //Act 
+            var mock = new Mock<Hero>("Hero");
+            var actual = mock.Object.LevelAttributes.GetAttributes();
+
+            // Assert
+            Assert.Equal(expected, actual);
+        }
+
+        [Fact]
         public void Constructor_InitializeWithName_ShouldCreateAHeroWithoutItems()
         {
             // Arrange
@@ -77,5 +91,22 @@ namespace Assignment1Tests
             Assert.Equal(expected, actual);
         }
         #endregion Instantiation
+
+        [Fact]
+        public void LevelUp_WhenCalled_ShouldIncreaseLevelBy1()
+        {
+            // Arrange
+            string name = "Hero";
+            var mock = new Mock<Hero>("Hero");
+            mock.Object.LevelUp();
+            int expected = 2;
+
+            //Act 
+            var actual = mock.Object.Level;
+
+            // Assert
+            Assert.Equal(expected, actual);
+        }
+
     }
 }

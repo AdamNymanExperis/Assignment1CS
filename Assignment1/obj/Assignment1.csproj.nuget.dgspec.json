@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\ANyman\\source\\repos\\Assignment1\\Assignment1\\Assignment1.csproj": {}
+    "C:\\Users\\ANyman\\source\\repos\\assignment1\\Assignment1\\Assignment1.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ANyman\\source\\repos\\Assignment1\\Assignment1\\Assignment1.csproj": {
+    "C:\\Users\\ANyman\\source\\repos\\assignment1\\Assignment1\\Assignment1.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ANyman\\source\\repos\\Assignment1\\Assignment1\\Assignment1.csproj",
+        "projectUniqueName": "C:\\Users\\ANyman\\source\\repos\\assignment1\\Assignment1\\Assignment1.csproj",
         "projectName": "Assignment1",
-        "projectPath": "C:\\Users\\ANyman\\source\\repos\\Assignment1\\Assignment1\\Assignment1.csproj",
+        "projectPath": "C:\\Users\\ANyman\\source\\repos\\assignment1\\Assignment1\\Assignment1.csproj",
         "packagesPath": "C:\\Users\\ANyman\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ANyman\\source\\repos\\Assignment1\\Assignment1\\obj\\",
+        "outputPath": "C:\\Users\\ANyman\\source\\repos\\assignment1\\Assignment1\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\ANyman\\AppData\\Roaming\\NuGet\\NuGet.Config",
