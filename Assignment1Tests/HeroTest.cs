@@ -1,5 +1,6 @@
 using Assignment1;
 using Moq;
+using Xunit.Sdk;
 
 namespace Assignment1Tests
 {
@@ -103,6 +104,22 @@ namespace Assignment1Tests
 
             //Act 
             var actual = mock.Object.Level;
+
+            // Assert
+            Assert.Equal(expected, actual);
+        }
+
+        [Fact]
+        public void TotalAttributes_WhenCalled_ShouldReturnZeroWhenZeroAttributesAndNoEquipments()
+        {
+            // Arrange
+            string name = "Hero";
+            var mock = new Mock<Hero>("Hero");
+            var expected = new int[] { 0, 0, 0 };
+
+            //Act 
+            var total = mock.Object.TotalAttributes();
+            var actual = total.GetAttributes();
 
             // Assert
             Assert.Equal(expected, actual);
