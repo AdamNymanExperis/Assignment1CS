@@ -38,7 +38,7 @@ namespace Assignment1.Heroes
                 }
             }
 
-            return weaponDamage * (1 + attributes[1] / 100);
+            return weaponDamage * (1 + getTotalDexterity() / 100);
         }
     }
 }

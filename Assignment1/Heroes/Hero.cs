@@ -77,9 +77,30 @@ namespace Assignment1.Heroes
             return total;
         }
 
+        protected int getTotalStrength()
+        {
+            var attributes = TotalAttributes().GetAttributes();
+            if(attributes.TryGetValue(AttributeType.Strength, out int strength)) return strength;
+            else return 0;
+        }
+        protected int getTotalDexterity() {
+            var attributes = TotalAttributes().GetAttributes();
+            if (attributes.TryGetValue(AttributeType.Dexterity, out int dexterity)) return dexterity;
+            else return 0;
+        }
+        protected int getTotalIntelligence()
+        {
+            var attributes = TotalAttributes().GetAttributes();
+            if (attributes.TryGetValue(AttributeType.Intelligence, out int intelligence)) return intelligence;
+            else return 0;
+        }
+
         public void Display()
         {
-
+            StringBuilder sb = new StringBuilder();
+            sb.AppendLine($"---{Name}---");
+            //sb.AppendLine($"Class: {}");
+            sb.AppendLine($"Level: {Level})");
         }
     }
 }

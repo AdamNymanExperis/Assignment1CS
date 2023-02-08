@@ -1,4 +1,7 @@
-﻿namespace Assignment1.Helper
+﻿
+using Assignment1.Enums;
+
+namespace Assignment1.Helper
 {
     public class HeroAttribute
     {
@@ -20,9 +23,13 @@
             this.intelligence = intelligence;
         }
 
-        public int[] GetAttributes()
+        public Dictionary<AttributeType, int> GetAttributes()
         {
-            int[] attributes = { strength, dexterity, intelligence };
+            var attributes = new Dictionary<AttributeType, int>{
+                {AttributeType.Strength, strength},
+                {AttributeType.Intelligence, intelligence},
+                {AttributeType.Dexterity, dexterity},
+            };
             return attributes;
         }
 
