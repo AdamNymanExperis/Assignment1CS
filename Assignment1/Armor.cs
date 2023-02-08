@@ -2,6 +2,14 @@
 {
     public class Armor : Item
     {
-        public int[] ArmorAttribute = new int[3];
+        public HeroAttribute ArmorAttribute = new HeroAttribute();
+        public ArmorTypes ArmorType { get; set; }
+    }
+
+    public enum ArmorTypes { 
+        Cloth,
+        Leather,
+        Mail,
+        Plate
     }
 }

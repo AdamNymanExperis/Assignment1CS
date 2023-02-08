@@ -37,7 +37,7 @@ namespace Assignment1
                 {
                     var armor= Equipment[i] as Armor;
                     var armorAttributes = armor.ArmorAttribute;
-                    total += new HeroAttribute(armorAttributes[0], armorAttributes[1], armorAttributes[2]);
+                    total += armorAttributes;
                 }
             }
             return total;

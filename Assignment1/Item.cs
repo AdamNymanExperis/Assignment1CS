@@ -4,11 +4,11 @@
     {
         public string Name { get; set; } = "Item";
         public int RequiredLevel { get; set; } = 1;
-        public Slot Slot { get; set; }
+        public Slots Slot { get; set; }
 
     }
 
-    public enum Slot { 
+    public enum Slots { 
         Weapon,
         Head,
         Body,
