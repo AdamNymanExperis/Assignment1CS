@@ -1136,6 +1136,9 @@
       },
       "xunit.runner.visualstudio/2.4.5": {},
       "Assignment1/1.0.0": {
+        "dependencies": {
+          "Moq": "4.18.4"
+        },
         "runtime": {
           "Assignment1.dll": {}
         }

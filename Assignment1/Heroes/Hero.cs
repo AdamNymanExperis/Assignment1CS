@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Assignment1.Helper;
 using Assignment1.Items;
+using Assignment1.Enums;
 
 namespace Assignment1.Heroes
 {
@@ -18,18 +19,32 @@ namespace Assignment1.Heroes
         public string Name { get; set; }
         public int Level { get; set; } = 1;
         public HeroAttribute LevelAttributes { get; } = new HeroAttribute();
-        public Dictionary<Slots, Item> Equipment = new Dictionary<Slots, Item>();
-        public object ValidWeaponTypes = new List<string>();
-        public object ValidArmorTypes = new List<string>();
+        public Dictionary<Enums.Slot, Item> Equipment = new Dictionary<Enums.Slot, Item>();
+        public List<WeaponType> ValidWeaponTypes = new List<WeaponType>();
+        public List<ArmorType> ValidArmorTypes = new List<ArmorType>();
 
-        public void LevelUp()
-        {
-            Level++;
-        }
-
-        public abstract void Equip(Armor armor);
-        public abstract void Equip(Weapon weapon);
+        public abstract void LevelUp();
         public abstract void Damage();
+
+        public void Equip(Armor armor) 
+        {
+            if (armor.RequiredLevel <= Level && ValidArmorTypes.Contains(armor.ArmorType))
+            {
+                Equipment.Remove(armor.Slot);
+                Equipment.Add(armor.Slot, armor);
+            }
+            else {
+                
+            }
+        }
+        public void Equip(Weapon weapon)
+        {
+            if (weapon.RequiredLevel <= Level && ValidWeaponTypes.Contains(weapon.WeaponType))
+            {
+                Equipment.Remove(weapon.Slot);
+                Equipment.Add(weapon.Slot, weapon);
+            }
+        }
 
         public HeroAttribute TotalAttributes()
         {
