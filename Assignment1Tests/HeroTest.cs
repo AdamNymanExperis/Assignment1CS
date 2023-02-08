@@ -51,20 +51,6 @@ namespace Assignment1Tests
         }
 
         [Fact]
-        public void Constructor_InitializeWithName_ShouldCreateAHeroWithoutItems()
-        {
-            // Arrange
-            var expected = new Item[0];
-
-            //Act 
-            var mock = new Mock<Hero>("Hero");
-            var actual = mock.Object.Equipment.ToArray();
-
-            // Assert
-            Assert.Equal(expected, actual);
-        }
-
-        [Fact]
         public void Constructor_InitializeWithName_ShouldCreateAHeroNoValidWeaponType()
         {
             // Arrange

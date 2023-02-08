@@ -15,7 +15,7 @@ namespace Assignment1
         public string Name { get; set; }
         public int Level { get; set; } = 1;
         public HeroAttribute LevelAttributes { get; } = new HeroAttribute();
-        public List<Item> Equipment = new List<Item>();
+        public Dictionary<Slots,Item> Equipment = new Dictionary<Slots,Item>();
         public object ValidWeaponTypes = new List<String>();
         public object ValidArmorTypes = new List<String>();
 
@@ -31,15 +31,14 @@ namespace Assignment1
         public HeroAttribute TotalAttributes() 
         {
             var total = new HeroAttribute() + LevelAttributes;
-            for (int i = 0; i < Equipment.Count(); i++) 
+            
+            var allArmors = Equipment.OfType<Armor>();
+
+            foreach (Armor armor in allArmors) 
             {
-                if (Equipment[i].GetType() == typeof(Armor))
-                {
-                    var armor= Equipment[i] as Armor;
-                    var armorAttributes = armor.ArmorAttribute;
-                    total += armorAttributes;
-                }
+                total += armor.ArmorAttribute;
             }
+
             return total;
         }
 
