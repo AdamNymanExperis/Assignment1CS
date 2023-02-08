@@ -25,7 +25,6 @@ namespace Assignment1.Heroes
         public List<ArmorType> ValidArmorTypes = new List<ArmorType>();
 
         public abstract void LevelUp();
-        public abstract int Damage();
 
         public void Equip(Armor armor) 
         {
@@ -95,12 +94,19 @@ namespace Assignment1.Heroes
             else return 0;
         }
 
+        public virtual int Damage() { return 1; }
+
         public void Display()
         {
             StringBuilder sb = new StringBuilder();
-            sb.AppendLine($"---{Name}---");
+            sb.AppendLine($"Name: {Name}");
             //sb.AppendLine($"Class: {}");
             sb.AppendLine($"Level: {Level})");
+            sb.AppendLine($"Total strength: {getTotalStrength()})");
+            sb.AppendLine($"Total dexterity: {getTotalDexterity()})");
+            sb.AppendLine($"Total intelligence: {getTotalIntelligence()})");
+            sb.AppendLine($"Damage: {Damage()}");
+            Console.WriteLine(sb.ToString());
         }
     }
 }
