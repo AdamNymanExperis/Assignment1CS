@@ -1,4 +1,6 @@
-﻿using Assignment1.Items;
+﻿using Assignment1.Enums;
+using Assignment1.Helper;
+using Assignment1.Items;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,16 +13,31 @@ namespace Assignment1.Heroes
     {
         public Mage(string name) : base(name)
         {
-        }
-
-        public override void Damage()
-        {
-            throw new NotImplementedException();
+            ValidArmorTypes.Add(ArmorType.Cloth);
+            ValidWeaponTypes.AddRange(new List<WeaponType>{ WeaponType.Wands, WeaponType.Staffs});
+            LevelAttributes = new HeroAttribute(1, 1, 8);
         }
 
         public override void LevelUp()
         {
-            throw new NotImplementedException();
+            Level++;
+            LevelAttributes += new HeroAttribute(1, 1, 5);
+        }
+        public override int Damage()
+        {
+            var attributes = TotalAttributes().GetAttributes();
+            int weaponDamage = 1;
+
+            if (Equipment.TryGetValue(Slot.Weapon, out Item item))
+            {
+                Weapon weapon = item as Weapon;
+                if (weapon != null)
+                {
+                    weaponDamage = weapon.WeaponDamage;
+                }
+            }
+
+            return weaponDamage * (1 + attributes[2] / 100);
         }
     }
 }
