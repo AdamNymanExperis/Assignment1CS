@@ -4,37 +4,40 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
+using Assignment1.Helper;
+using Assignment1.Items;
 
-namespace Assignment1
+namespace Assignment1.Heroes
 {
     public abstract class Hero
     {
-        public Hero(string name) {
+        public Hero(string name)
+        {
             Name = name;
         }
         public string Name { get; set; }
         public int Level { get; set; } = 1;
         public HeroAttribute LevelAttributes { get; } = new HeroAttribute();
-        public Dictionary<Slots,Item> Equipment = new Dictionary<Slots,Item>();
-        public object ValidWeaponTypes = new List<String>();
-        public object ValidArmorTypes = new List<String>();
+        public Dictionary<Slots, Item> Equipment = new Dictionary<Slots, Item>();
+        public object ValidWeaponTypes = new List<string>();
+        public object ValidArmorTypes = new List<string>();
 
-        public virtual void LevelUp()
+        public void LevelUp()
         {
-            Level++; 
+            Level++;
         }
 
         public abstract void Equip(Armor armor);
         public abstract void Equip(Weapon weapon);
-        public abstract void Damage(); 
+        public abstract void Damage();
 
-        public HeroAttribute TotalAttributes() 
+        public HeroAttribute TotalAttributes()
         {
             var total = new HeroAttribute() + LevelAttributes;
-            
+
             var allArmors = Equipment.OfType<Armor>();
 
-            foreach (Armor armor in allArmors) 
+            foreach (Armor armor in allArmors)
             {
                 total += armor.ArmorAttribute;
             }
@@ -42,9 +45,9 @@ namespace Assignment1
             return total;
         }
 
-        public void Display() 
-        { 
-            
+        public void Display()
+        {
+
         }
     }
 }

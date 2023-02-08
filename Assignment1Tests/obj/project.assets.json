@@ -1870,6 +1870,9 @@
       "Assignment1/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Moq": "4.18.4"
+        },
         "compile": {
           "bin/placeholder/Assignment1.dll": {}
         },

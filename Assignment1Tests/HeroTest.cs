@@ -1,4 +1,4 @@
-using Assignment1;
+using Assignment1.Heroes;
 using Moq;
 using Xunit.Sdk;
 

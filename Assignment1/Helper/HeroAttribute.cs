@@ -1,15 +1,15 @@
-﻿namespace Assignment1
+﻿namespace Assignment1.Helper
 {
     public class HeroAttribute
     {
         private int strength;
         private int dexterity;
-        private int intelligence; 
-        
+        private int intelligence;
+
         public HeroAttribute()
         {
             strength = 0;
-            dexterity = 0; 
+            dexterity = 0;
             intelligence = 0;
         }
 
