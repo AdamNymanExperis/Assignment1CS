@@ -33,9 +33,10 @@ namespace Assignment1
             var total = new HeroAttribute() + LevelAttributes;
             for (int i = 0; i < Equipment.Count(); i++) 
             {
-                if (Equipment[i].Slot != Slot.Weapon)
+                if (Equipment[i].GetType() == typeof(Armor))
                 {
-                    var armorAttributes = Equipment[i].ArmorAttribute;
+                    var armor= Equipment[i] as Armor;
+                    var armorAttributes = armor.ArmorAttribute;
                     total += new HeroAttribute(armorAttributes[0], armorAttributes[1], armorAttributes[2]);
                 }
             }
