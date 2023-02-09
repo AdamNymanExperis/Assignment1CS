@@ -10,7 +10,5 @@ namespace Assignment1.Exceptions
     {  
         public InvalidArmorException() { }
         public InvalidArmorException(string message) : base(message){ }
-
-        public override string Message => "InvalidArmorException";
     }
 }

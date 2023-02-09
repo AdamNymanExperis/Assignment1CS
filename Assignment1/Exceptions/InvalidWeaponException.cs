@@ -10,7 +10,5 @@ namespace Assignment1.Exceptions
     {
         public InvalidWeaponException() { }
         public InvalidWeaponException(string message) : base(message) { }
-
-        public override string Message => "InvalidWeaponException";
     }
 }
