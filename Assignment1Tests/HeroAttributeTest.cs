@@ -16,14 +16,14 @@ namespace Assignment1Tests
             // Arrange
             HeroAttribute attributes = new HeroAttribute(3,5,3);
             HeroAttribute attributesWithValues = new HeroAttribute(1,2,3);
-            int[] expected = new int[]{ 4, 7, 6 };
+            var expected = new HeroAttribute(4,7,6);
 
             //Act 
-            var sum = attributes + attributesWithValues;
-            var actual = sum.GetAttributes();
+            var actual = attributes + attributesWithValues;
+            
 
             // Assert
-            //Assert.Equal(expected, actual);
+            Assert.True(expected.Equals(actual));
         }
     }
 }

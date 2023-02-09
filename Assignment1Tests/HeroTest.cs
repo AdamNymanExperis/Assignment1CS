@@ -1,3 +1,4 @@
+using Assignment1.Helper;
 using Assignment1.Heroes;
 using Moq;
 using Moq.Protected;
@@ -7,8 +8,8 @@ namespace Assignment1Tests
 {
     public class HeroTest
     {
-        //#region Instantiation
-        /*
+        #region Instantiation
+        
         [Fact]
         public void Constructor_InitializeWithName_ShouldCreateAnHeroWithTheName()
         {
@@ -18,7 +19,7 @@ namespace Assignment1Tests
 
             //Act 
             var mock = new Mock<Hero>("Hero");
-            string actual = mock.Protected().Setup<string>("Name").Returns("");
+            string actual = mock.Object.Name;
 
             // Assert
             Assert.Equal(expected, actual);
@@ -42,76 +43,33 @@ namespace Assignment1Tests
         public void Constructor_InitializeWithName_ShouldCreateAHeroWithoutAttributes()
         {
             // Arrange
-            var expected = new int[] {0,0,0};
+            var expected = new HeroAttribute(0,0,0);
 
             //Act 
             var mock = new Mock<Hero>("Hero");
-            var actual = mock.Object.LevelAttributes.GetAttributes();
+            var actual = mock.Object.LevelAttributes;
 
             // Assert
-            Assert.Equal(expected, actual);
+            Assert.True(expected.Equals(actual));
         }
 
-        [Fact]
-        public void Constructor_InitializeWithName_ShouldCreateAHeroNoValidWeaponType()
-        {
-            // Arrange
-            var expected = new String[0];
-
-            //Act 
-            var mock = new Mock<Hero>("Hero");
-            var actual = mock.Object.ValidWeaponTypes;
-
-            // Assert
-            Assert.Equal(expected, actual);
-        }
-
-        [Fact]
-        public void Constructor_InitializeWithName_ShouldCreateAHeroNoValidArmorType()
-        {
-            // Arrange
-            var expected = new String[0];
-
-            //Act 
-            var mock = new Mock<Hero>("Hero");
-            var actual = mock.Object.ValidArmorTypes;
-
-            // Assert
-            Assert.Equal(expected, actual);
-        }
         #endregion Instantiation
 
-        [Fact]
-        public void LevelUp_WhenCalled_ShouldIncreaseLevelBy1()
-        {
-            // Arrange
-            string name = "Hero";
-            var mock = new Mock<Hero>("Hero");
-            mock.Object.LevelUp();
-            int expected = 2;
-
-            //Act 
-            var actual = mock.Object.Level;
-
-            // Assert
-            Assert.Equal(expected, actual);
-        }
-
+        
         [Fact]
         public void TotalAttributes_WhenCalled_ShouldReturnZeroWhenZeroAttributesAndNoEquipments()
         {
             // Arrange
             string name = "Hero";
             var mock = new Mock<Hero>("Hero");
-            var expected = new int[] { 0, 0, 0 };
+            var expected = new HeroAttribute(0,0,0);
 
             //Act 
-            var total = mock.Object.TotalAttributes();
-            var actual = total.GetAttributes();
+            var actual = mock.Object.TotalAttributes();
+            
 
             // Assert
-            Assert.Equal(expected, actual);
-        }*/
-
+            Assert.True(expected.Equals(actual));
+        }
     }
 }

@@ -38,5 +38,13 @@ namespace Assignment1.Helper
             return new HeroAttribute { strength = lhs.strength + rhs.strength, dexterity = lhs.dexterity + rhs.dexterity, intelligence = lhs.intelligence + rhs.intelligence };
         }
 
+        public override bool Equals(object obj)
+        {
+            return obj is HeroAttribute attribute && 
+                strength == attribute.strength &&
+                dexterity == attribute.dexterity &&
+                intelligence == attribute.intelligence;
+        }
+
     }
 }

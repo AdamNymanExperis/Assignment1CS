@@ -6,7 +6,7 @@ namespace Assignment1.Items
     public class Weapon : Item
     {
         public int WeaponDamage { get; private set; }
-        public Enums.WeaponType WeaponType { get; private set; }
+        public WeaponType WeaponType { get; private set; }
 
 
 
