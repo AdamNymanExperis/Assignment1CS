@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Assignment1.Exceptions
 {
-    internal class InvalidWeaponException : Exception
+    public class InvalidWeaponException : Exception
     {
         public InvalidWeaponException() { }
         public InvalidWeaponException(string message) : base(message) { }

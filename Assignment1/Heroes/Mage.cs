@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Assignment1.Heroes
 {
-    internal class Mage : Hero
+    public class Mage : Hero
     {
         public Mage(string name) : base(name)
         {

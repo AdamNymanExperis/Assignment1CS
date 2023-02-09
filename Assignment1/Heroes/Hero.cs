@@ -18,12 +18,12 @@ namespace Assignment1.Heroes
             Name = name;
         }
         public string Name { get; protected set; }
-        protected string Class { get; set; } = "none"; 
         public int Level { get; protected set; } = 1;
         public HeroAttribute LevelAttributes { get; protected set; } = new HeroAttribute();
         protected Dictionary<Enums.Slot, Item> Equipment = new Dictionary<Enums.Slot, Item>();
         protected List<WeaponType> ValidWeaponTypes = new List<WeaponType>();
         protected List<ArmorType> ValidArmorTypes = new List<ArmorType>();
+        protected string Class { get; set; } = "none";
 
         public abstract void LevelUp();
 
