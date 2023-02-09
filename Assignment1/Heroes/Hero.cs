@@ -75,8 +75,11 @@ namespace Assignment1.Heroes
             var total = new HeroAttribute() + LevelAttributes;
             var allArmors = Equipment.OfType<Armor>();
 
+            Console.WriteLine("in Total");
+
             foreach (Armor armor in allArmors)
             {
+                Console.WriteLine("in Armor");
                 total += armor.ArmorAttribute;
             }
             return total;

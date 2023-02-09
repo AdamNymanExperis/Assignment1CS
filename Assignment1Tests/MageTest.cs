@@ -262,6 +262,41 @@ namespace Assignment1Tests
 
         #endregion EquipException
 
+        #region TotalAttribute
+        [Fact]
+        public void MageTotalAttribute_CheckTotalAttributeOnALevel1MageWithNoEquipment_ShouldReturnSpecificValuesForAllAttribute()
+        {
+            // Arrange
+            var mage = new Mage("Mage");
+            var expected = new HeroAttribute(1, 1, 8);
+
+            //Act 
+            var actual = mage.TotalAttributes();
+
+            // Assert
+            Assert.True(expected.Equals(actual));
+        }
+
+        [Theory]
+        [InlineData(Slot.Head)]
+        [InlineData(Slot.Body)]
+        [InlineData(Slot.Legs)]
+        public void MageTotalAttribute_CheckTotalAttributeOnALevel1MageWithOnePieceOfEquipment_ShouldReturnSpecificValuesForAllAttribute(Slot armorSlot)
+        {
+            // Arrange
+            var mage = new Mage("Mage");
+            var armor = new Armor("armor", 1, armorSlot, ArmorType.Cloth, new HeroAttribute(1,1,1));
+            var expected = new HeroAttribute(2, 2, 9);
+
+            //Act 
+            mage.Equip(armor);
+            var actual = mage.TotalAttributes();
+
+            // Assert
+            Assert.True(expected.Equals(actual));
+        }
+        #endregion TotalAttribute
+
         #region Damage
         [Fact]
         public void MageDamage_WithoutWeaponAndAtLevel1_ShouldDealASpecificAmountOfDamageBasedOnparameters()
