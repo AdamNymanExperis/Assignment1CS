@@ -14,6 +14,7 @@ namespace Assignment1.Heroes
     {
         public Ranger(string name) : base(name)
         {
+            Class = "Ranger";
             ValidArmorTypes.AddRange(new List<ArmorType> { ArmorType.Leather, ArmorType.Mail });
             ValidWeaponTypes.Add(WeaponType.Bows);
             LevelAttributes = new HeroAttribute(1, 7, 1);

@@ -14,6 +14,7 @@ namespace Assignment1.Heroes
     {
         public Warrior(string name) : base(name)
         {
+            Class = "Warrior";
             ValidArmorTypes.AddRange(new List<ArmorType> { ArmorType.Plate, ArmorType.Mail });
             ValidWeaponTypes.AddRange(new List<WeaponType> { WeaponType.Hammers, WeaponType.Axes, WeaponType.Swords});
             LevelAttributes = new HeroAttribute(5, 2, 1);

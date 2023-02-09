@@ -13,6 +13,7 @@ namespace Assignment1.Heroes
     {
         public Rogue(string name) : base(name)
         {
+            Class = "Rogue";
             ValidArmorTypes.AddRange(new List<ArmorType> { ArmorType.Leather, ArmorType.Mail });
             ValidWeaponTypes.AddRange(new List<WeaponType> { WeaponType.Daggers, WeaponType.Swords });
             LevelAttributes = new HeroAttribute(2, 6, 1);

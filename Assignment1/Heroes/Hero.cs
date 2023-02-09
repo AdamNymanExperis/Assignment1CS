@@ -18,6 +18,7 @@ namespace Assignment1.Heroes
             Name = name;
         }
         public string Name { get; set; }
+        protected string Class { get; set; } = "none"; 
         public int Level { get; set; } = 1;
         public HeroAttribute LevelAttributes { get; set; } = new HeroAttribute();
         public Dictionary<Enums.Slot, Item> Equipment = new Dictionary<Enums.Slot, Item>();
@@ -100,7 +101,7 @@ namespace Assignment1.Heroes
         {
             StringBuilder sb = new StringBuilder();
             sb.AppendLine($"Name: {Name}");
-            //sb.AppendLine($"Class: {}");
+            sb.AppendLine($"Class: {Class}");
             sb.AppendLine($"Level: {Level})");
             sb.AppendLine($"Total strength: {getTotalStrength()})");
             sb.AppendLine($"Total dexterity: {getTotalDexterity()})");

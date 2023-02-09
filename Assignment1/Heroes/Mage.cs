@@ -13,6 +13,7 @@ namespace Assignment1.Heroes
     {
         public Mage(string name) : base(name)
         {
+            Class = "Mage";
             ValidArmorTypes.Add(ArmorType.Cloth);
             ValidWeaponTypes.AddRange(new List<WeaponType>{ WeaponType.Wands, WeaponType.Staffs});
             LevelAttributes = new HeroAttribute(1, 1, 8);
