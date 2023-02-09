@@ -2,9 +2,9 @@
 {
     public abstract class Item
     {
-        public string Name { get; set; } = "Item";
-        public int RequiredLevel { get; set; } = 1;
-        public Enums.Slot Slot { get; set; }
+        protected string Name { get; set; } = "Item";
+        public int RequiredLevel { get; protected set; } = 1;
+        public Enums.Slot Slot { get; protected set; }
 
     }
 }
