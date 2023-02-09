@@ -19,11 +19,11 @@ namespace Assignment1.Items
             this.WeaponDamage = 4;
         }
 
-        public Weapon(string name, int requiredLevel, Slot slot, WeaponType weaponType, int damage)
+        public Weapon(string name, int requiredLevel, WeaponType weaponType, int damage)
         {
             this.Name = name;
             this.RequiredLevel = requiredLevel;
-            this.Slot = slot;
+            this.Slot = Slot.Weapon;
             this.WeaponType = weaponType;
             this.WeaponDamage = damage;
         }
