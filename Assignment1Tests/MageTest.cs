@@ -295,6 +295,48 @@ namespace Assignment1Tests
             // Assert
             Assert.True(expected.Equals(actual));
         }
+
+        [Theory]
+        [InlineData(Slot.Head, Slot.Body)]
+        [InlineData(Slot.Head, Slot.Legs)]
+        [InlineData(Slot.Body, Slot.Legs)]
+        public void MageTotalAttribute_CheckTotalAttributeOnALevel1MageWithTwoPieceOfEquipment_ShouldReturnSpecificValuesForAllAttribute(Slot armorSlot, Slot anotherArmorSlot)
+        {
+            // Arrange
+            var mage = new Mage("Mage");
+            var armorPiece = new Armor("armor", 1, armorSlot, ArmorType.Cloth, new HeroAttribute(1, 1, 1));
+            var anotherArmorPiece = new Armor("armor", 1, anotherArmorSlot, ArmorType.Cloth, new HeroAttribute(1, 1, 1));
+            var expected = new HeroAttribute(3, 3, 10);
+
+            //Act 
+            mage.Equip(armorPiece);
+            mage.Equip(anotherArmorPiece);
+            var actual = mage.TotalAttributes();
+
+            // Assert
+            Assert.True(expected.Equals(actual));
+        }
+
+        [Theory]
+        [InlineData(Slot.Head)]
+        [InlineData(Slot.Legs)]
+        [InlineData(Slot.Body)]
+        public void MageTotalAttribute_CheckTotalAttributeOnALevel1MageAfterChangingArmor_ShouldReturnSpecificValuesForAllAttribute(Slot armorSlot)
+        {
+            // Arrange
+            var mage = new Mage("Mage");
+            var armorPiece = new Armor("armor", 1, armorSlot, ArmorType.Cloth, new HeroAttribute(1, 1, 1));
+            var anotherArmorPiece = new Armor("armor", 1, armorSlot, ArmorType.Cloth, new HeroAttribute(2, 2, 2));
+            var expected = new HeroAttribute(3, 3, 10);
+
+            //Act 
+            mage.Equip(armorPiece);
+            mage.Equip(anotherArmorPiece);
+            var actual = mage.TotalAttributes();
+
+            // Assert
+            Assert.True(expected.Equals(actual));
+        }
         #endregion TotalAttribute
 
         #region Damage

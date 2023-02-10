@@ -73,15 +73,16 @@ namespace Assignment1.Heroes
         public HeroAttribute TotalAttributes()
         {
             var total = new HeroAttribute() + LevelAttributes;
-            var allArmors = Equipment.OfType<Armor>();
 
-            Console.WriteLine("in Total");
-
-            foreach (Armor armor in allArmors)
+            foreach (KeyValuePair<Slot, Item> Pair in Equipment) 
             {
-                Console.WriteLine("in Armor");
-                total += armor.ArmorAttribute;
+                if (Pair.Key != Slot.Weapon) 
+                {
+                    var armorPiece = Pair.Value as Armor;
+                    total += armorPiece.ArmorAttribute;
+                }
             }
+
             return total;
         }
 
