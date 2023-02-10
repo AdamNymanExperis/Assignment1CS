@@ -3,6 +3,7 @@ using Assignment1.Exceptions;
 using Assignment1.Helper;
 using Assignment1.Heroes;
 using Assignment1.Items;
+using Moq;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -200,10 +201,10 @@ namespace Assignment1Tests
             var armorPiece = new Armor("name", 2, armorPieceSlot, ArmorType.Cloth, new HeroAttribute(1, 1, 1));
 
             //Act 
-            var actual = Assert.Throws<InvalidArmorException>(() => mage.Equip(armorPiece));
+            var actual = Assert.Throws<InvalidArmorException>(() => mage.Equip(armorPiece)).Message;
 
             // Assert
-            Assert.Equal(expected, actual.Message);
+            Assert.Equal(expected, actual);
         }
 
         [Theory]
@@ -235,10 +236,10 @@ namespace Assignment1Tests
             var weapon = new Weapon("name", 2, type, 1);
 
             //Act 
-            var actual = Assert.Throws<InvalidWeaponException>(() => mage.Equip(weapon));
+            var actual = Assert.Throws<InvalidWeaponException>(() => mage.Equip(weapon)).Message;
 
             // Assert
-            Assert.Equal(expected, actual.Message);
+            Assert.Equal(expected, actual);
         }
 
         [Theory]
@@ -254,10 +255,10 @@ namespace Assignment1Tests
             var weapon = new Weapon("name", 1, weaponType, 1);
 
             //Act 
-            var actual = Assert.Throws<InvalidWeaponException>(() => mage.Equip(weapon));
+            var actual = Assert.Throws<InvalidWeaponException>(() => mage.Equip(weapon)).Message;
 
             // Assert
-            Assert.Equal(expected, actual.Message);
+            Assert.Equal(expected, actual);
         }
 
         #endregion EquipException
@@ -423,6 +424,32 @@ namespace Assignment1Tests
             Assert.Equal(expected, actual);
         }
         #endregion Damage
+
+        #region display
+
+        [Fact]
+        public void Display_WhenCalledOnMage_ShouldReturnAStringContainingBasicInfo()
+        {
+            // Arrange
+            StringBuilder stringBuilder = new StringBuilder();
+            stringBuilder.AppendLine($"Name: Mage");
+            stringBuilder.AppendLine($"Class: Mage");
+            stringBuilder.AppendLine($"Level: 1");
+            stringBuilder.AppendLine($"Total strength: 1");
+            stringBuilder.AppendLine($"Total dexterity: 1");
+            stringBuilder.AppendLine($"Total intelligence: 8");
+            stringBuilder.AppendLine($"Damage: 1");
+            string expected = stringBuilder.ToString();
+
+            //Act 
+            var mage = new Mage("Mage");
+            string actual = mage.Display();
+
+            // Assert
+            Assert.Equal(expected, actual);
+        }
+
+        #endregion display
 
         #endregion Mage
     }

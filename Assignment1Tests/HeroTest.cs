@@ -5,6 +5,11 @@ using Assignment1.Heroes;
 using Assignment1.Items;
 using Moq;
 using Moq.Protected;
+using System.Net.Sockets;
+using System.Reflection.Emit;
+using System.Reflection.Metadata.Ecma335;
+using System.Security.Claims;
+using System.Text;
 using System.Xml.Linq;
 using Xunit.Sdk;
 
@@ -78,6 +83,33 @@ namespace Assignment1Tests
         }
 
         #endregion TotalAttributes
+
+        #region display
+
+        [Fact]
+        public void Display_WhenCalledOnHero_ShouldReturnAStringContainingBasicInfo()
+        {
+            // Arrange
+            StringBuilder stringBuilder = new StringBuilder();
+            stringBuilder.AppendLine($"Name: Hero");
+            stringBuilder.AppendLine($"Class: none");
+            stringBuilder.AppendLine($"Level: 1");
+            stringBuilder.AppendLine($"Total strength: 0");
+            stringBuilder.AppendLine($"Total dexterity: 0");
+            stringBuilder.AppendLine($"Total intelligence: 0");
+            stringBuilder.AppendLine($"Damage: 1");
+            string expected = stringBuilder.ToString();
+
+            //Act 
+            var mock = new Mock<Hero>("Hero");
+            mock.Setup(m => m.Damage()).Returns(1); // since Moq overrides methods I have to set this method to return 1 so that it doesnt return 0 
+            string actual = mock.Object.Display();
+
+            // Assert
+            Assert.Equal(expected, actual);
+        }
+
+        #endregion display
 
         #endregion Hero
     }

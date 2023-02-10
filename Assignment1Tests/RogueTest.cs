@@ -424,6 +424,32 @@ namespace Assignment1Tests
         }
         #endregion Damage
 
+        #region display
+
+        [Fact]
+        public void Display_WhenCalledOnRogue_ShouldReturnAStringContainingBasicInfo()
+        {
+            // Arrange
+            StringBuilder stringBuilder = new StringBuilder();
+            stringBuilder.AppendLine($"Name: Rogue");
+            stringBuilder.AppendLine($"Class: Rogue");
+            stringBuilder.AppendLine($"Level: 1");
+            stringBuilder.AppendLine($"Total strength: 2");
+            stringBuilder.AppendLine($"Total dexterity: 6");
+            stringBuilder.AppendLine($"Total intelligence: 1");
+            stringBuilder.AppendLine($"Damage: 1");
+            string expected = stringBuilder.ToString();
+
+            //Act 
+            var rogue = new Rogue("Rogue");
+            string actual = rogue.Display();
+
+            // Assert
+            Assert.Equal(expected, actual);
+        }
+
+        #endregion display
+
         #endregion Rogue
     }
 }

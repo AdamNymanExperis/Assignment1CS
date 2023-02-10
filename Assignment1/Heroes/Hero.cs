@@ -104,19 +104,22 @@ namespace Assignment1.Heroes
             else return 0;
         }
 
-        public virtual int Damage() { return 1; }
-
-        public void Display()
+        public virtual int Damage() 
         {
-            StringBuilder sb = new StringBuilder();
-            sb.AppendLine($"Name: {Name}");
-            sb.AppendLine($"Class: {Class}");
-            sb.AppendLine($"Level: {Level})");
-            sb.AppendLine($"Total strength: {getTotalStrength()})");
-            sb.AppendLine($"Total dexterity: {getTotalDexterity()})");
-            sb.AppendLine($"Total intelligence: {getTotalIntelligence()})");
-            sb.AppendLine($"Damage: {Damage()}");
-            Console.WriteLine(sb.ToString());
+            return 1;
+        }
+
+        public string Display()
+        {
+            StringBuilder stringBuilder = new StringBuilder();
+            stringBuilder.AppendLine($"Name: {Name}");
+            stringBuilder.AppendLine($"Class: {Class}");
+            stringBuilder.AppendLine($"Level: {Level}");
+            stringBuilder.AppendLine($"Total strength: {getTotalStrength()}");
+            stringBuilder.AppendLine($"Total dexterity: {getTotalDexterity()}");
+            stringBuilder.AppendLine($"Total intelligence: {getTotalIntelligence()}");
+            stringBuilder.AppendLine($"Damage: {Damage()}");
+            return stringBuilder.ToString();
         }
     }
 }

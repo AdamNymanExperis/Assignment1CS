@@ -425,6 +425,32 @@ namespace Assignment1Tests
         }
         #endregion Damage
 
+        #region display
+
+        [Fact]
+        public void Display_WhenCalledOnWarrior_ShouldReturnAStringContainingBasicInfo()
+        {
+            // Arrange
+            StringBuilder stringBuilder = new StringBuilder();
+            stringBuilder.AppendLine($"Name: Warrior");
+            stringBuilder.AppendLine($"Class: Warrior");
+            stringBuilder.AppendLine($"Level: 1");
+            stringBuilder.AppendLine($"Total strength: 5");
+            stringBuilder.AppendLine($"Total dexterity: 2");
+            stringBuilder.AppendLine($"Total intelligence: 1");
+            stringBuilder.AppendLine($"Damage: 1");
+            string expected = stringBuilder.ToString();
+
+            //Act 
+            var warrior = new Warrior("Warrior");
+            string actual = warrior.Display();
+
+            // Assert
+            Assert.Equal(expected, actual);
+        }
+
+        #endregion display
+
         #endregion Warrior
     }
 }
