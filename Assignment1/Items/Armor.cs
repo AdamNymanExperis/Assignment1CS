@@ -1,5 +1,6 @@
 ﻿using Assignment1.Enums;
 using Assignment1.Helper;
+using System;
 using System.Xml.Linq;
 
 namespace Assignment1.Items
@@ -24,7 +25,15 @@ namespace Assignment1.Items
             this.ArmorType = armorType;  
             this.ArmorAttribute = armorAttribute; 
         }
-    }
 
-    
+        public override bool Equals(object obj)
+        {
+            return obj is Armor armor &&
+                Name == armor.Name &&
+                RequiredLevel == armor.RequiredLevel &&
+                Slot == armor.Slot &&
+                ArmorType == armor.ArmorType &&
+                ArmorAttribute.Equals(armor.ArmorAttribute); 
+        }
+    }
 }

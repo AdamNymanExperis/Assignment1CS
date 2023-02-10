@@ -27,5 +27,14 @@ namespace Assignment1.Items
             this.WeaponType = weaponType;
             this.WeaponDamage = damage;
         }
+        public override bool Equals(object obj)
+        {
+            return obj is Weapon weapon &&
+                Name == weapon.Name &&
+                RequiredLevel == weapon.RequiredLevel &&
+                Slot == weapon.Slot &&
+                WeaponType == weapon.WeaponType &&
+                WeaponDamage == weapon.WeaponDamage;
+        }
     }
 }
