@@ -24,7 +24,7 @@ namespace Assignment1.Heroes
         protected List<WeaponType> ValidWeaponTypes = new List<WeaponType>();
         protected List<ArmorType> ValidArmorTypes = new List<ArmorType>();
 
-        public Item[] getEquipment()
+        public Item[] GetEquipment()
         {
             return Equipment.Values.ToArray();
         }
@@ -34,7 +34,7 @@ namespace Assignment1.Heroes
 
         public void Equip(Armor armor) 
         {
-            if (isRequiredLevelForArmor(armor.RequiredLevel) && isValidArmorType(armor.ArmorType))
+            if (IsRequiredLevelForArmor(armor.RequiredLevel) && IsValidArmorType(armor.ArmorType))
             {
                 Equipment.Remove(armor.Slot);
                 Equipment.Add(armor.Slot, armor);
@@ -43,28 +43,28 @@ namespace Assignment1.Heroes
 
         public void Equip(Weapon weapon)
         {
-            if (isRequiredLevelForWeapon(weapon.RequiredLevel) && isValidWeaponType(weapon.WeaponType))
+            if (IsRequiredLevelForWeapon(weapon.RequiredLevel) && IsValidWeaponType(weapon.WeaponType))
             {
                 Equipment.Remove(weapon.Slot);
                 Equipment.Add(weapon.Slot, weapon);
             }
         }
-        private bool isRequiredLevelForArmor(int requiredLevel)
+        private bool IsRequiredLevelForArmor(int requiredLevel)
         {
             if (requiredLevel <= Level) return true;
             else throw new InvalidArmorException($"You require a higher level to equip that armor! (required level {requiredLevel})");
         }
-        private bool isValidArmorType(ArmorType type)
+        private bool IsValidArmorType(ArmorType type)
         {
             if (ValidArmorTypes.Contains(type)) return true;
             else throw new InvalidArmorException($"You can't wear armors of that type! ({type})");
         }
-        private bool isRequiredLevelForWeapon(int requiredLevel)
+        private bool IsRequiredLevelForWeapon(int requiredLevel)
         {
             if (requiredLevel <= Level) return true;
             else throw new InvalidWeaponException($"You require a higher level to equip that weapon! (required level {requiredLevel})");
         }
-        private bool isValidWeaponType(WeaponType type)
+        private bool IsValidWeaponType(WeaponType type)
         {
             if (ValidWeaponTypes.Contains(type)) return true;
             else throw new InvalidWeaponException($"You can't use weapons of that type! ({type})"); ;
@@ -76,28 +76,27 @@ namespace Assignment1.Heroes
 
             foreach (KeyValuePair<Slot, Item> Pair in Equipment) 
             {
-                if (Pair.Key != Slot.Weapon) 
+                if (Pair.Value as Armor != null) 
                 {
-                    var armorPiece = Pair.Value as Armor;
-                    total += armorPiece.ArmorAttribute;
+                    total += ((Armor)Pair.Value).ArmorAttribute;
                 }
             }
 
             return total;
         }
 
-        protected int getTotalStrength()
+        protected int GetTotalStrength()
         {
             var attributes = TotalAttributes().GetAttributes();
             if(attributes.TryGetValue(AttributeType.Strength, out int strength)) return strength;
             else return 0;
         }
-        protected int getTotalDexterity() {
+        protected int GetTotalDexterity() {
             var attributes = TotalAttributes().GetAttributes();
             if (attributes.TryGetValue(AttributeType.Dexterity, out int dexterity)) return dexterity;
             else return 0;
         }
-        protected int getTotalIntelligence()
+        protected int GetTotalIntelligence()
         {
             var attributes = TotalAttributes().GetAttributes();
             if (attributes.TryGetValue(AttributeType.Intelligence, out int intelligence)) return intelligence;
@@ -109,15 +108,28 @@ namespace Assignment1.Heroes
             return 1;
         }
 
+        protected int GetWeaponDamage() 
+        {
+            if (Equipment.TryGetValue(Slot.Weapon, out Item? item))
+            {
+                Weapon? weapon = item as Weapon;
+                if (weapon != null)
+                {
+                    return weapon.WeaponDamage;
+                }
+            }
+            return 1;
+        }
+
         public string Display()
         {
             StringBuilder stringBuilder = new StringBuilder();
             stringBuilder.AppendLine($"Name: {Name}");
             stringBuilder.AppendLine($"Class: {Class}");
             stringBuilder.AppendLine($"Level: {Level}");
-            stringBuilder.AppendLine($"Total strength: {getTotalStrength()}");
-            stringBuilder.AppendLine($"Total dexterity: {getTotalDexterity()}");
-            stringBuilder.AppendLine($"Total intelligence: {getTotalIntelligence()}");
+            stringBuilder.AppendLine($"Total strength: {GetTotalStrength()}");
+            stringBuilder.AppendLine($"Total dexterity: {GetTotalDexterity()}");
+            stringBuilder.AppendLine($"Total intelligence: {GetTotalIntelligence()}");
             stringBuilder.AppendLine($"Damage: {Damage()}");
             return stringBuilder.ToString();
         }

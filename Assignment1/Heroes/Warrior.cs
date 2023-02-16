@@ -27,19 +27,7 @@ namespace Assignment1.Heroes
         }
         public override int Damage()
         {
-            var attributes = TotalAttributes().GetAttributes();
-            int weaponDamage = 1;
-
-            if (Equipment.TryGetValue(Slot.Weapon, out Item item))
-            {
-                Weapon weapon = item as Weapon;
-                if (weapon != null)
-                {
-                    weaponDamage = weapon.WeaponDamage;
-                }
-            }
-
-            return weaponDamage * (1 + getTotalStrength()/ 100);
+            return GetWeaponDamage() * (1 + GetTotalStrength()/ 100);
         }
     }
 }

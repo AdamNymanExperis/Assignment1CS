@@ -98,7 +98,7 @@ namespace Assignment1Tests
 
             //Act 
             warrior.Equip(armorPiece);
-            var equipment = warrior.getEquipment();
+            var equipment = warrior.GetEquipment();
             var actual = equipment[0];
 
             // Assert
@@ -118,7 +118,7 @@ namespace Assignment1Tests
             warrior.Equip(armorPiece);
             warrior.Equip(anotherArmorPiece);
 
-            var equipment = warrior.getEquipment();
+            var equipment = warrior.GetEquipment();
             var actual = equipment[0];
 
             // Assert
@@ -140,7 +140,7 @@ namespace Assignment1Tests
 
             //Act 
             warrior.Equip(weapon);
-            var equipment = warrior.getEquipment();
+            var equipment = warrior.GetEquipment();
             var actual = equipment[0];
 
             // Assert
@@ -160,7 +160,7 @@ namespace Assignment1Tests
 
             //Act 
             warrior.Equip(weapon);
-            var equipment = warrior.getEquipment();
+            var equipment = warrior.GetEquipment();
             var actual = equipment[0];
 
             // Assert
@@ -179,7 +179,7 @@ namespace Assignment1Tests
             //Act 
             warrior.Equip(weapon);
             warrior.Equip(anotherWeapon);
-            var equipment = warrior.getEquipment();
+            var equipment = warrior.GetEquipment();
             var actual = equipment[0];
 
             // Assert

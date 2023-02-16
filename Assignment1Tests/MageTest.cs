@@ -99,7 +99,7 @@ namespace Assignment1Tests
 
             //Act 
             mage.Equip(armorPiece);
-            var equipment = mage.getEquipment();
+            var equipment = mage.GetEquipment();
             var actual = equipment[0];
 
             // Assert
@@ -119,7 +119,7 @@ namespace Assignment1Tests
             mage.Equip(armorPiece);
             mage.Equip(anotherArmorPiece);
 
-            var equipment = mage.getEquipment();
+            var equipment = mage.GetEquipment();
             var actual = equipment[0];
 
             // Assert
@@ -141,7 +141,7 @@ namespace Assignment1Tests
 
             //Act 
             mage.Equip(weapon);
-            var equipment = mage.getEquipment();
+            var equipment = mage.GetEquipment();
             var actual = equipment[0];
 
             // Assert
@@ -160,7 +160,7 @@ namespace Assignment1Tests
 
             //Act 
             mage.Equip(weapon);
-            var equipment = mage.getEquipment();
+            var equipment = mage.GetEquipment();
             var actual = equipment[0];
 
             // Assert
@@ -179,7 +179,7 @@ namespace Assignment1Tests
             //Act 
             mage.Equip(weapon);
             mage.Equip(anotherWeapon);
-            var equipment = mage.getEquipment();
+            var equipment = mage.GetEquipment();
             var actual = equipment[0];
 
             // Assert

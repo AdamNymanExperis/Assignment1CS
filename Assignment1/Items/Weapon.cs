@@ -8,8 +8,6 @@ namespace Assignment1.Items
         public int WeaponDamage { get; private set; }
         public WeaponType WeaponType { get; private set; }
 
-
-
         public Weapon()
         {
             this.Name = "Sting, the Sword of Bilbo Baggins";

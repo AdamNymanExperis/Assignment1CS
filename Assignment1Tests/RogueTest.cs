@@ -98,7 +98,7 @@ namespace Assignment1Tests
 
             //Act 
             rogue.Equip(armorPiece);
-            var equipment = rogue.getEquipment();
+            var equipment = rogue.GetEquipment();
             var actual = equipment[0];
 
             // Assert
@@ -118,7 +118,7 @@ namespace Assignment1Tests
             rogue.Equip(armorPiece);
             rogue.Equip(anotherArmorPiece);
 
-            var equipment = rogue.getEquipment();
+            var equipment = rogue.GetEquipment();
             var actual = equipment[0];
 
             // Assert
@@ -140,7 +140,7 @@ namespace Assignment1Tests
 
             //Act 
             rogue.Equip(weapon);
-            var equipment = rogue.getEquipment();
+            var equipment = rogue.GetEquipment();
             var actual = equipment[0];
 
             // Assert
@@ -159,7 +159,7 @@ namespace Assignment1Tests
 
             //Act 
             rogue.Equip(weapon);
-            var equipment = rogue.getEquipment();
+            var equipment = rogue.GetEquipment();
             var actual = equipment[0];
 
             // Assert
@@ -178,7 +178,7 @@ namespace Assignment1Tests
             //Act 
             rogue.Equip(weapon);
             rogue.Equip(anotherWeapon);
-            var equipment = rogue.getEquipment();
+            var equipment = rogue.GetEquipment();
             var actual = equipment[0];
 
             // Assert
