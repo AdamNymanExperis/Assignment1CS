@@ -55,7 +55,7 @@ namespace ExpansionPack.ItemCreators
 
         private int GetWeaponDamage(int itemLevel)
         {
-            var rarityDmg = rarityHandler.GetRarityBonus();                    // adds extra attribute based on the items rarity
+            var rarityDmg = rarityHandler.GetRarityBonus();
             return itemLevel - 5 + random.Next(3) + rarityDmg;
         }
     }

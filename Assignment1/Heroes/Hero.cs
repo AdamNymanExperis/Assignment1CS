@@ -84,7 +84,12 @@ namespace Assignment1.Heroes
 
             return total;
         }
+        public virtual int Damage()
+        {
+            return 1;
+        }
 
+        // help methods that is used in the subclasses damage method as well as for display
         protected int GetTotalStrength()
         {
             var attributes = TotalAttributes().GetAttributes();
@@ -103,11 +108,7 @@ namespace Assignment1.Heroes
             else return 0;
         }
 
-        public virtual int Damage() 
-        {
-            return 1;
-        }
-
+        // help method for damage method in the subclasses
         protected int GetWeaponDamage() 
         {
             if (Equipment.TryGetValue(Slot.Weapon, out Item? item))

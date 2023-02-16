@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "i4FoS0sD4REn8trEOGNx96Xz+YKJkLjONObEZOJcAG8WReTU5TIfwmuIB+VyFtP9N6nNlW3na2AUBo0NyQvl0A==",
+  "dgSpecHash": "Z2u6Zk7oMkuLilew8UT+Y59HeCwDMa5LZQDwY1Gh0vzs2AmAa34qIwxlu4acvQ/HEBDi0Q7iBM5Jvwzum0//ag==",
   "success": true,
-  "projectFilePath": "C:\\Users\\ANyman\\source\\repos\\Assignment1\\ExpansionPack\\ExpansionPack.csproj",
+  "projectFilePath": "C:\\Users\\ANyman\\source\\repos\\assignment1\\ExpansionPack\\ExpansionPack.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\ANyman\\.nuget\\packages\\castle.core\\5.1.1\\castle.core.5.1.1.nupkg.sha512",
     "C:\\Users\\ANyman\\.nuget\\packages\\moq\\4.18.4\\moq.4.18.4.nupkg.sha512",

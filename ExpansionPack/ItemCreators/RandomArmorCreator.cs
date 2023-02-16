@@ -57,12 +57,14 @@ namespace ExpansionPack.ItemCreators
         {
             var rarityAttribute = rarityHandler.GetRarityBonus();
 
-            var weakAttribute = itemLevel + rarityAttribute + random.Next(3);                                  // adds extra attribute based on Level and random factor
+            // adds extra attribute based on Level and random factor
+            var weakAttribute = itemLevel + rarityAttribute + random.Next(3);                                  
             var strongAttribute = itemLevel + rarityAttribute + random.Next(3) + 8;
 
             HeroAttribute itemAttribute = new HeroAttribute(0, 0, 0);
-            if (itemArmorType == ArmorType.Cloth) itemAttribute = new HeroAttribute(weakAttribute, weakAttribute, strongAttribute);     // decides strong and weak attributes based on armortype
-            if (itemArmorType == ArmorType.Leather) itemAttribute = new HeroAttribute(weakAttribute, strongAttribute, weakAttribute);   // for ex. Cloth is mage armor, meaning that it gives stronger intelligence
+            // decides strong and weak attributes based on armortype. for ex. Cloth is mage armor, meaning that it gives stronger intelligence
+            if (itemArmorType == ArmorType.Cloth) itemAttribute = new HeroAttribute(weakAttribute, weakAttribute, strongAttribute);     
+            if (itemArmorType == ArmorType.Leather) itemAttribute = new HeroAttribute(weakAttribute, strongAttribute, weakAttribute);   
             if (itemArmorType == ArmorType.Mail) itemAttribute = new HeroAttribute(weakAttribute, strongAttribute, weakAttribute);
             if (itemArmorType == ArmorType.Plate) itemAttribute = new HeroAttribute(strongAttribute, weakAttribute, weakAttribute);
 

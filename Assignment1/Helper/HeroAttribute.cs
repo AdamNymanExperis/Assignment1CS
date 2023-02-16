@@ -23,6 +23,7 @@ namespace Assignment1.Helper
             this.intelligence = intelligence;
         }
 
+        // returns a dictionary to keep the values encapsulated and still not using magic variables
         public Dictionary<AttributeType, int> GetAttributes()
         {
             var attributes = new Dictionary<AttributeType, int>{

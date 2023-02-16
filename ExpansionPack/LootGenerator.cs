@@ -37,6 +37,7 @@ namespace ExpansionPack
             random = aRandom;
         }
         
+        //Get a random Weapon or random Armor
         public Item GetRandomLoot(int level) 
         {
             Item item;
@@ -73,9 +74,10 @@ namespace ExpansionPack
             return armorCreator.CreateArmor(itemLevel, Slot.Legs);
         }
 
+        // Generates a random level based on the players level when obtaining the item
         private int GetItemLevel(int playerLevel)
         {
-            return playerLevel + random.Next(5) - 2;        // Generates a random level based on the players level when obtaining the item
+            return playerLevel + random.Next(5) - 2;        
         }
     }
 }

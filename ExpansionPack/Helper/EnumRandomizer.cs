@@ -14,10 +14,13 @@ namespace ExpansionPack.Helper
         {
             random = new ParseRandom();        
         }
+
         public EnumRandomizer(IRandom aRandom) 
         {
             random = aRandom;
         }
+
+        // gets a Enum and returns a random Enum of the same type 
         public Enum RandomEnum(Enum aEnum)
         {
             Array values = Enum.GetValues(aEnum.GetType());
