@@ -8,6 +8,9 @@ make the heroes stronger. The weapons and armors is divided into different types
 This contains the functionality that was not specified as requirements for the project. This package contains the LootGenerator and a bunch of classes that helps 
 this class to generate random loot depending on the input. 
 
+This was meant to be on a separate branch. However, I late made refactors on the main and when I wanted to add those changes to the expansion_pack branch I did something 
+and the two branches merged on main instead. Hence only one branch with all of the functionality. 
+
 ## Requirements
 The project is developed in visual studio 2022 community edition and .Net 6.0
 
