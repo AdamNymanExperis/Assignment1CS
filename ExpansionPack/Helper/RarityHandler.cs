@@ -18,11 +18,13 @@ namespace ExpansionPack.Helper
             enumRandomizer = new EnumRandomizer();
             random = new ParseRandom();
         }
+
         public RarityHandler(IEnumRandomizer aRandomizer, IRandom aRandom)
         {
             enumRandomizer = aRandomizer;
             random = aRandom;
         }
+
         public void RandomizeRarity()
         {
             var randomNumber = random.Next(100);
@@ -32,6 +34,7 @@ namespace ExpansionPack.Helper
             else if (randomNumber < 31) Rarity = Rarity.Rare;       // 20 / 100 is Rare
             else Rarity = Rarity.Common;                            // rest is Common
         }
+
         public string GetRarityPrefix()
         {
             if (Rarity == Rarity.Legendary) return "Legendary";
@@ -39,6 +42,8 @@ namespace ExpansionPack.Helper
             else if (Rarity == Rarity.Rare) return enumRandomizer.RandomEnum(RarePrefix.Rare).ToString();
             else return enumRandomizer.RandomEnum(CommonPrefix.Common).ToString();
         }
+
+        // returns a int that is added as extra damage/attributes to the items
         public int GetRarityBonus()
         {
             if (Rarity == Rarity.Legendary) return 7;
